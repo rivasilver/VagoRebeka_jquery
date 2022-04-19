@@ -9,10 +9,15 @@
     <script>
         $(function(){
             $("#gomb").hover(gombraHuzta);
+            $("#gomb").mouseleave(gombrolLehuzta);
         });
 
         function gombraHuzta(){
             $("#gomb").html("Sikerült");
+        };
+
+        function gombrolLehuzta(){
+            $("#gomb").html("Húzd ide az egeret");
         }
     </script>
 </head>

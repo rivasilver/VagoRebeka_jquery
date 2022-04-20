@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. feladat</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#kep").ready(function(){
+                $("#bekezdes").html("Betöltődött");
+            });
+            $("#kep").click(function(){
+                $("#bekezdes").html("Rákattintott");
+            });
+        });
+    </script>
+</head>
+<body id="oldal">
+    <p id="bekezdes"></p>
+    <img id="kep" src="https://static.wikia.nocookie.net/71a3d4f0-15ce-4edc-9463-b9ac6ce1caf8" alt="Venti">
+</body>
+</html>

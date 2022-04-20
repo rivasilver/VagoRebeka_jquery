@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. feladat</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script>
+        let gondoltSzam = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+
+        $(function(){
+            $("#gomb").click(function(){
+                let tipp = $("#tipp").val();
+                if (tipp == gondoltSzam){
+                    alert("Eltaláltad!");
+                }
+                else if (tipp < gondoltSzam){
+                    alert("Nem talált! Nagyobbra gondoltam!");
+                }
+                else if (tipp > gondoltSzam){
+                    alert("Nem talált! Kisebbre gondoltam!");
+                }
+            });
+            $("#ujGomb").click(function(){
+                gondoltSzam = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>Gondoltam egy számra 1 és 100 között.<br>Ki tudod találni?</p>
+    <input type="number" id="tipp">
+    <button id="gomb">Tippelek!</button>
+    <p id="bekezdes"></p>
+    <button id="ujGomb">Új számot kérek!</button>
+</body>
+</html>

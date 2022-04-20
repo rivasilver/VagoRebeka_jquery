@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. feladat</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#gomb").click(function(){
+                let szam = parseInt($("#beviteli").val());
+                switch (szam){
+                    case 1:
+                        $("#eredmeny").html("hétfő")
+                        break
+                    case 2:
+                        $("#eredmeny").html("kedd")
+                        break
+                    case 3:
+                        $("#eredmeny").html("szerda")
+                        break
+                    case 4:
+                        $("#eredmeny").html("csütörtök")
+                        break
+                    case 5:
+                        $("#eredmeny").html("péntek")
+                        break
+                    case 6:
+                        $("#eredmeny").html("szombat")
+                        break
+                    case 7:
+                        $("#eredmeny").html("vasárnap")
+                        break
+                    default:
+                        $("#eredmeny").html("Nem megfelelő számot adott meg")
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+    <p>Mondj egy számot 1 és 7 között. Megmondom, hogy a hét melyik napjának felel meg.</p>
+    <input type="number" id="beviteli"><br><br>
+    <button id="gomb">Mondd!</button>
+    <p id="eredmeny"></p>
+</body>
+</html>

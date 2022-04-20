@@ -8,17 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script>
         $(function(){
-            $("input").focusin(zold);
-            $("input").focusout(fekete);
+            $("input").focusin(function(){
+                $(this).css("color", "green");
+            });
+            $("input").focusout(function(){
+                $(this).css("color", "black");
+            });
         });
-
-        function zold(){
-            $(this).css("color", "green");
-        }
-
-        function fekete(){
-            $(this).css("color", "black");
-        }
     </script>
 </head>
 <body>

@@ -8,17 +8,14 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script>
         $(function(){
-            $("#gomb").hover(gombraHuzta);
-            $("#gomb").mouseleave(gombrolLehuzta);
+            $("#gomb").hover(function(){
+                $(this).html("Sikerült");
+            });
+            $("#gomb").mouseleave(function(){
+                
+                $(this).html("Húzd ide az egeret");
+            });
         });
-
-        function gombraHuzta(){
-            $("#gomb").html("Sikerült");
-        };
-
-        function gombrolLehuzta(){
-            $("#gomb").html("Húzd ide az egeret");
-        }
     </script>
 </head>
 <body>

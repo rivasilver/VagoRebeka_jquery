@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. feladat</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#gomb").click(function(){
+                let a = $("#a").val();
+                let b = $("#b").val();
+                let terulet = a * b;
+                let kerulet = (2 * a) + (2 * b);
+                $("#eredmeny").html("Terület: " + terulet + " egység, kerület: " + kerulet + " egység");
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>Terület és kerület számítás</p>
+    <label for="a">a oldal: </label><input type="number" id="a"><br>
+    <label for="b">b oldal: </label><input type="number" id="b"><br><br>
+    <button id="gomb">Számolj!</button>
+    <p id="eredmeny"></p>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. feladat</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#gomb").click(felvesz)
+        });
+            
+        function felvesz(){
+            let nev = $("#nev").val();
+            let jelszo1 = $("#jelszo1").val();
+            let jelszo2 = $("#jelszo2").val();
+            let mindenKitoltve = true;
+            if (nev.length < 5 || nev.length > 16){
+                mindenKitoltve = false;
+                alert("A felhasználónév minimum 5 karakter legyen!")
+            }
+            if (jelszo1 != jelszo2){
+                mindenKitoltve = false;
+                alert("A két jelszó nem egyezik meg!")
+            }
+            if (jelszo1 === '' || jelszo2 === ''){
+                mindenKitoltve = false;
+                alert("A jelszó minimum 5 karakter hosszú legyen!")
+            }
+            if (mindenKitoltve){
+                const felhasznalo = {
+                    nev: nev,
+                    jelszo: jelszo1,
+                    email: $("#email").val(),
+                    szuldatum: $("#szuldatum").val(),
+                }
+            console.log(felhasznalo)
+            }
+        };
+    </script>
+</head>
+<body>
+    <form name="regisztracio" method="POST">
+        <label for="nev">Felhasználónév: </label>
+        <input id="nev" type="text" placeholder="Felhasználónév" name="nev" minlength="5" maxlength="16">
+        <br>
+        <label for="jelszo1">Jelszó: </label>
+        <input id="jelszo1" type="text" placeholder="Jelszó" name="jelszo1" minlength="5">
+        <br>
+        <label for="jelszo2">Jelszó még egyszer: </label>
+        <input id="jelszo2" type="text" placeholder="Jelszó még egyszer" name="jelszo2" minlength="5">
+        <br>
+        <label for="email">E-mail cím: </label>
+        <input id="email" type="email" placeholder="E-mail cím" name="email">
+        <br>
+        <label for="szuldatum">Születési dátum: </label>
+        <input id="szuldatum" type="date" name="szuldatum">
+        <br>
+        <button id="gomb" type="button">Regisztráció</button>
+    </form>
+</body>
+</html>

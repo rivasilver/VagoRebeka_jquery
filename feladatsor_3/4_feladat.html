@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. feladat</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#gomb").click(felvesz)
+        });
+            
+        function felvesz(){
+            let nev = $("#nev").val();
+            let kedvencKonyv = $("#kedvencKonyv").val();
+            let kedvencIro = $("#kedvencIro").val();
+            let mufaj = [];
+            $("#mufajok").find("input:checked").each(function (i, ob) { 
+                mufaj.push($(ob).val());
+            });
+            let mikor = $("#mikor").val();
+            let mindenKitoltve = true;
+            if (nev.length < 1){
+                mindenKitoltve = false;
+                alert("Nem írtad be a neved!")
+            }
+            if (kedvencKonyv.length < 1){
+                mindenKitoltve = false;
+                alert("Nem írtad be a kedvenc könyved!")
+            }
+            if (kedvencIro.length < 1){
+                mindenKitoltve = false;
+                alert("Nem írtad be a kedvenc íród!")
+            }
+            if (mufaj.length < 1){
+                mindenKitoltve = false;
+                alert("Jelölj be legalább egy műfajt!")
+            }
+            if (mikor.length < 1){
+                mindenKitoltve = false;
+                alert("Nem jelöltél be dátumot!")
+            }
+            if (mindenKitoltve){
+                const olvaso = {
+                    nev: nev,
+                    kedvencKonyv: kedvencKonyv,
+                    kedvencIro: kedvencIro,
+                    mufaj: mufaj,
+                    mikor: mikor,
+                }
+            console.log(olvaso)
+            }
+        };
+    </script>
+</head>
+<body>
+    <form name="olvas" method="POST">
+        <label for="nev">Név: </label>
+        <input id="nev" type="text" placeholder="A te neved" name="nev">
+        <br><br>
+        <label for="kedvencKonyv">Mi a kedvenc könyved? </label>
+        <input id="kedvencKonyv" type="text" placeholder="Ide írd a címét" name="kedvencKonyv">
+        <br><br>
+        <label for="kedvencIro">Ki a kedvenc íród? </label>
+        <input id="kedvencIro" type="text" placeholder="Ide írd a nevét" name="kedvencIro">
+        <br><br>
+        <label for="db">Hány könyvet olvastál el tavaly?</label>
+        <br>
+        <select name="db" id="db">
+            <option value="1">Nem olvastam tavaly</option>
+            <option value="2">1-10</option>
+            <option value="3">11-50</option>
+            <option value="4">51-100</option>
+            <option value="5">Több, mint 100</option>
+        </select><br><br>
+        Milyen műfajt szeretsz olvasni?
+        <div id="mufajok">
+            <input type="checkbox" name="mufaj[]" id="scifi" value="scifi">
+            <label for="scifi">Sci-fi</label>
+            <input type="checkbox" name="mufaj[]" id="fantasy" value="fantasy">
+            <label for="fantasy">Fantasy</label>
+            <input type="checkbox" name="mufaj[]" id="krimi" value="krimi">
+            <label for="krimi">Krimi</label>
+            <input type="checkbox" name="mufaj[]" id="horror" value="horror">
+            <label for="horror">Horror</label>
+            <input type="checkbox" name="mufaj[]" id="romantikus" value="romantikus">
+            <label for="romantikus">Romantikus</label><br><br>
+            <label for="mikor">Mikor olvastál utoljára?</label>
+            <input id="mikor" type="date" name="mikor"><br><br>
+            <button id="gomb" type="button">Elküld</button>
+        </div>
+    </form>
+</body>
+</html>

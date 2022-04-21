@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. feladat</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#atalakit").click(function(){
+                let milyen = $('input[name="milyen"]:checked').val();
+                let szoveg = $("#beviteli").val();
+                if (szoveg === ''){
+                    alert("Nem írt be szöveget!");
+                    return;
+                }
+                if (milyen === undefined){
+                    alert("Nem választott funkciót!");
+                    return;
+                }
+                else if (milyen === "kisbetus"){
+                    $("#eredmeny").html(szoveg.toLowerCase());
+                }
+                else if (milyen === "nagybetus"){
+                    $("#eredmeny").html(szoveg.toUpperCase());
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="beviteli"><br><br>
+    <input type="radio" name="milyen" id="kisbetus" value="kisbetus">
+    <label for="kisbetus">Kisbetűssé</label>
+    <input type="radio" name="milyen" id="nagybetus" value="nagybetus">
+    <label for="nagybetus">Nagybetűssé</label><br><br>
+    <button id="atalakit">Átalakítom!</button>
+    <p id="eredmeny"></p>
+</body>
+</html>
